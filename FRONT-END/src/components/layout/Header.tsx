@@ -18,7 +18,12 @@ const pageTitles: Record<string, string> = {
 
 export function Header({ onMenuOpen, onSearchOpen }: HeaderProps) {
   const location = useLocation()
-  const title = pageTitles[location.pathname] ?? (location.pathname.includes('/transcript') ? 'Transcript' : 'Meeting')
+  const title = pageTitles[location.pathname]
+    ?? (location.pathname.includes('/transcript')
+      ? 'Transcript'
+      : /^\/meetings\/[^/]+$/.test(location.pathname)
+        ? 'Meeting details'
+        : 'Meeting')
 
   return (
     <header className="flex h-20 shrink-0 items-center justify-between border-b border-border bg-card px-5 sm:px-7">

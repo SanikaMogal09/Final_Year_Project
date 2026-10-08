@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
 import { Dashboard } from './pages/Dashboard'
+import { MeetingDetails } from './pages/MeetingDetails'
 import { Meetings } from './pages/Meetings'
 import { PlaceholderPage } from './pages/PlaceholderPage'
 
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route element={<Dashboard />} path="/dashboard" />
         <Route element={<Meetings />} path="/meetings" />
-        <Route element={<PlaceholderPage name="Meeting detail" />} path="/meetings/:id" />
+        <Route element={<MeetingDetails />} path="/meetings/:id" />
         <Route element={<PlaceholderPage name="Live meeting" />} path="/meetings/:id/live" />
         <Route element={<PlaceholderPage name="Meeting transcript" />} path="/meetings/:id/transcript" />
         <Route element={<PlaceholderPage name="AI summary" />} path="/meetings/:id/summary" />

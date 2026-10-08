@@ -36,3 +36,55 @@ export interface AIInsight {
   time: string
   title: string
 }
+
+export interface TranscriptSegment {
+  id: string
+  speakerId: string
+  timestamp: string
+  text: string
+}
+
+export interface WorkspaceActionItem {
+  assigneeId: string
+  dueDate?: string
+  id: string
+  priority: 'High' | 'Medium' | 'Low'
+  status: 'open' | 'completed'
+  task: string
+}
+
+export interface WorkspaceInsight {
+  category: 'Theme' | 'Risk' | 'Follow-up' | 'Pattern'
+  description: string
+  id: string
+  title: string
+}
+
+export interface MeetingParticipantDetail {
+  participantId: string
+  role: string
+}
+
+export interface MeetingWorkspaceData {
+  actionItems: WorkspaceActionItem[]
+  executiveSummary?: string
+  hasSummary: boolean
+  hasTranscript: boolean
+  insights: WorkspaceInsight[]
+  keyDecisions: string[]
+  keyTopics: string[]
+  meetingId: string
+  nextSteps: string[]
+  participantDetails: MeetingParticipantDetail[]
+  summary?: string
+  transcriptSegments: TranscriptSegment[]
+  unresolvedQuestions: string[]
+}
+
+export type MeetingWorkspaceTab = 'overview' | 'summary' | 'transcript' | 'action-items' | 'insights'
+
+export interface QAChatMessage {
+  id: string
+  role: 'user' | 'assistant'
+  text: string
+}
